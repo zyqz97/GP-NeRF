@@ -36,7 +36,7 @@ MegaNeRF
 │   │   ├── building-pixsfm
 │   ├── rubble
 │   │   ├── rubble-pixsfm
-│   ├── building_chunk-1 (auto processd by scripts when training if use "--dataset_type filesystem". You can choose another path to save.)
+│   ├── building_chunk-1 (auto processed by scripts when training if use "--dataset_type filesystem". You can choose another path to save.)
 │   ├── rubble_chunk-1
 ├── Quad6k (the same as above)
 │   ├── quad
