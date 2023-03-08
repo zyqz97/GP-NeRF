@@ -29,7 +29,6 @@ comming soon.
 
 ## Datasets
 Please refer to [Mega-NeRF](https://github.com/cmusatyalab/mega-nerf#data) for downloading the datasets.
-datasets structure
 ```none
 MegaNeRF
 ├── Mill19
