@@ -14,26 +14,7 @@ conda install pytorch==1.10.1 torchvision==0.11.2 torchaudio==0.10.1 cudatoolkit
 pip install -r requirements.txt
 ```
 
-### Build extension (refer to [torch-ngp](https://github.com/ashawkey/torch-ngp))
-```
-$ cd ./mega_nerf/torch_ngp/gridencoder
-gridencoder$ python setup.py install
-gridencoder$ cd ../raymarching
-raymarching$ python setup.py install
-raymarching$ cd ../shencoder
-shencoder$ python setup.py install
-```
 
-### Install [CMake](https://cmake.org/) (optional)
-```
-$ wget  https://github.com/Kitware/CMake/releases/download/v3.25.1/cmake-3.25.1.tar.gz
-$ cd cmake-3.25.1
-cmake-3.25.1$ sudo apt-get install libssl-dev
-cmake-3.25.1$ sudo apt-get install build-essential
-cmake-3.25.1$ ./bootstrap
-cmake-3.25.1$ make
-cmake-3.25.1$ sudo make install
-```
 ### Install [tiny-cuda-nn](https://github.com/NVlabs/tiny-cuda-nn)
 
 ```
