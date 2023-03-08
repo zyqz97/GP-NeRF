@@ -1,0 +1,10 @@
+configargparse
+PyYAML
+opencv-python
+tensorboard
+tqdm
+pyarrow
+lpips  
+wandb
+setuptools==56.1.0
+pandas

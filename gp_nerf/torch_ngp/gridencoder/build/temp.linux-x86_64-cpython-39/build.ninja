@@ -1,0 +1,29 @@
+ninja_required_version = 1.3
+cxx = c++
+nvcc = /usr/local/cuda-11.3/bin/nvcc
+
+cflags = -pthread -B /home/yuqi/anaconda3/envs/mega-ingp/compiler_compat -Wno-unused-result -Wsign-compare -DNDEBUG -O2 -Wall -fPIC -O2 -isystem /home/yuqi/anaconda3/envs/mega-ingp/include -I/home/yuqi/anaconda3/envs/mega-ingp/include -fPIC -O2 -isystem /home/yuqi/anaconda3/envs/mega-ingp/include -fPIC -I/home/yuqi/anaconda3/envs/mega-ingp/lib/python3.9/site-packages/torch/include -I/home/yuqi/anaconda3/envs/mega-ingp/lib/python3.9/site-packages/torch/include/torch/csrc/api/include -I/home/yuqi/anaconda3/envs/mega-ingp/lib/python3.9/site-packages/torch/include/TH -I/home/yuqi/anaconda3/envs/mega-ingp/lib/python3.9/site-packages/torch/include/THC -I/usr/local/cuda-11.3/include -I/home/yuqi/anaconda3/envs/mega-ingp/include/python3.9 -c
+post_cflags = -O3 -std=c++14 -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE="_gcc"' '-DPYBIND11_STDLIB="_libstdcpp"' '-DPYBIND11_BUILD_ABI="_cxxabi1011"' -DTORCH_EXTENSION_NAME=_gridencoder -D_GLIBCXX_USE_CXX11_ABI=0
+cuda_cflags = -I/home/yuqi/anaconda3/envs/mega-ingp/lib/python3.9/site-packages/torch/include -I/home/yuqi/anaconda3/envs/mega-ingp/lib/python3.9/site-packages/torch/include/torch/csrc/api/include -I/home/yuqi/anaconda3/envs/mega-ingp/lib/python3.9/site-packages/torch/include/TH -I/home/yuqi/anaconda3/envs/mega-ingp/lib/python3.9/site-packages/torch/include/THC -I/usr/local/cuda-11.3/include -I/home/yuqi/anaconda3/envs/mega-ingp/include/python3.9 -c
+cuda_post_cflags = -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O3 -std=c++14 -U__CUDA_NO_HALF_OPERATORS__ -U__CUDA_NO_HALF_CONVERSIONS__ -U__CUDA_NO_HALF2_OPERATORS__ -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE="_gcc"' '-DPYBIND11_STDLIB="_libstdcpp"' '-DPYBIND11_BUILD_ABI="_cxxabi1011"' -DTORCH_EXTENSION_NAME=_gridencoder -D_GLIBCXX_USE_CXX11_ABI=0 -gencode=arch=compute_86,code=compute_86 -gencode=arch=compute_86,code=sm_86
+ldflags = 
+
+rule compile
+  command = $cxx -MMD -MF $out.d $cflags -c $in -o $out $post_cflags
+  depfile = $out.d
+  deps = gcc
+
+rule cuda_compile
+  depfile = $out.d
+  deps = gcc
+  command = $nvcc  $cuda_cflags -c $in -o $out $cuda_post_cflags
+
+
+
+build /disk1/yuqi/code/mega-nerf-zyq/mega_nerf/torch_ngp/gridencoder/build/temp.linux-x86_64-cpython-39/disk1/yuqi/code/mega-nerf-zyq/mega_nerf/torch_ngp/gridencoder/src/bindings.o: compile /disk1/yuqi/code/mega-nerf-zyq/mega_nerf/torch_ngp/gridencoder/src/bindings.cpp
+build /disk1/yuqi/code/mega-nerf-zyq/mega_nerf/torch_ngp/gridencoder/build/temp.linux-x86_64-cpython-39/disk1/yuqi/code/mega-nerf-zyq/mega_nerf/torch_ngp/gridencoder/src/gridencoder.o: cuda_compile /disk1/yuqi/code/mega-nerf-zyq/mega_nerf/torch_ngp/gridencoder/src/gridencoder.cu
+
+
+
+
+

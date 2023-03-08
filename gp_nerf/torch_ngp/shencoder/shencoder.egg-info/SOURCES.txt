@@ -1,0 +1,7 @@
+setup.py
+/disk1/yuqi/code/mega-nerf-zyq/mega_nerf/torch_ngp/shencoder/src/bindings.cpp
+/disk1/yuqi/code/mega-nerf-zyq/mega_nerf/torch_ngp/shencoder/src/shencoder.cu
+shencoder.egg-info/PKG-INFO
+shencoder.egg-info/SOURCES.txt
+shencoder.egg-info/dependency_links.txt
+shencoder.egg-info/top_level.txt

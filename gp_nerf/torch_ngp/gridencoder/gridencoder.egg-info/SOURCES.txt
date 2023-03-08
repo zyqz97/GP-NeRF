@@ -1,0 +1,7 @@
+setup.py
+/disk1/yuqi/code/mega-nerf-zyq/mega_nerf/torch_ngp/gridencoder/src/bindings.cpp
+/disk1/yuqi/code/mega-nerf-zyq/mega_nerf/torch_ngp/gridencoder/src/gridencoder.cu
+gridencoder.egg-info/PKG-INFO
+gridencoder.egg-info/SOURCES.txt
+gridencoder.egg-info/dependency_links.txt
+gridencoder.egg-info/top_level.txt
