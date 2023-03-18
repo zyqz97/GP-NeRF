@@ -24,7 +24,7 @@ tiny-cuda-nn/bindings/torch$ python setup.py install
 
 
 ## Pretrained Models
-comming soon.
+coming soon.
 
 
 ## Datasets
